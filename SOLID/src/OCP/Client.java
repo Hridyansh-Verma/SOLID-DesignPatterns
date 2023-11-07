@@ -10,5 +10,11 @@ public class Client {
         productsList.add(new Products("y",Color.SAFFRON,Size.MEDIUM));
         productsList.add(new Products("Z",Color.BLACK,Size.LARGE));
         productsList.add(new Products("A",Color.RED,Size.EXTRA_LARGE));
+
+        ProductFilterBad productFilterBad= new ProductFilterBad();
+        System.out.println("Streaming filtered products:");
+        productFilterBad.filterByColor(productsList,Color.RED).forEach(p-> System.out.println("-- "+p.name));
+        SizeFilter sizeFilter= new SizeFilter();
+        sizeFilter.filter(productsList,new ColorSpecification(Color.SAFFRON)).forEach(p-> System.out.println(p.name+" "+p.color+" "+p.size));
     }
 }
